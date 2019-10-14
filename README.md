@@ -39,4 +39,5 @@ Se debe tener en cuenta la estructura Request que utiliza el servicio, para que 
 se genero un paquete de pruebas el cual se puede ejecutar con el siguiente script:
 ```
 npm run test
+npm run average
 ```
