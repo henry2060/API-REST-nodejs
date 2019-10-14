@@ -6,7 +6,8 @@
     "scripts": {
         "build": "tsc",
         "dev": "nodemon src/index.ts --exec ts-node",
-        "test": "mocha -r ts-node/register ./specs/test.spec.ts"
+        "test": "mocha -r ts-node/register ./specs/test.spec.ts",
+        "average": "nyc npm test --exit after mocha"
     },
     "keywords": [],
     "author": "",
@@ -14,7 +15,8 @@
     "dependencies": {
         "chai-http": "^4.3.0",
         "express": "^4.17.1",
-        "morgan": "^1.9.1"
+        "morgan": "^1.9.1",
+        "mocha": "^6.2.1"
     },
     "devDependencies": {
         "@types/chai": "^4.2.3",
@@ -23,8 +25,8 @@
         "@types/mocha": "^5.2.7",
         "@types/morgan": "^1.7.37",
         "chai": "^4.2.0",
-        "mocha": "^6.2.1",
         "nodemon": "^1.19.3",
+        "nyc": "^14.1.1",
         "supertest": "^4.0.2",
         "ts-node": "^8.4.1",
         "typedoc": "https://github.com/DatenMetzgerX/typedoc/tarball/typescript-2-build",

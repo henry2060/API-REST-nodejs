@@ -5,15 +5,14 @@ import chai = require('chai')
 import chaiHttp = require('chai-http');
 chai.use(chaiHttp);
 const expect = require('chai').expect;
+let app = new App();
 
 describe('funciones api', () => {
 
-  it('start server on port 3000', () => {
-    async function main(){
-        const appi = new App();
-        await appi.listen(); 
-    }
-    main();    
+  before(function(done){
+    console.log('Iniciando server')
+    app.listen();
+    done();
   })
 
   it('prueba de ruta /test send array', function(done) {
@@ -79,7 +78,7 @@ describe('funciones api', () => {
     });
 
     it('prueba de ruta /test format error: hay una letra en el arreglo', function(done) {
-      chai.request('http://localhost:300')
+      chai.request('http://localhost:3000')
         .post('/test')
         .send({
           "num": {
@@ -88,8 +87,9 @@ describe('funciones api', () => {
         })
         .end( function(err,res){
           console.log(res.body)
-          expect(res).to.have.status(500);
+          expect(res).to.have.status(422);
           done();
         });
     });
+    
 })
